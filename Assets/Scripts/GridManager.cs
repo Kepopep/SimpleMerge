@@ -75,7 +75,7 @@ namespace SimpleMerge.Grid
         /// <summary>
         /// Инициализирует сетку при запуске объекта
         /// </summary>
-        private void Start()
+        private void Awake()
         {
             InitializeGrid();
         }
