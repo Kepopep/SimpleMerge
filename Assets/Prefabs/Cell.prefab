@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7deb44d54782e458215e8474072fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowIndex: 0
-  columnIndex: 0
-  localOffset: {x: 0, y: 0, z: 0}
+  _rowIndex: 0
+  _columnIndex: 0
+  _localOffset: {x: 0, y: 0, z: 0}
