@@ -11,4 +11,9 @@ public class MergeGridAdapter : MonoBehaviour
     {
         _spawner.SpawnItemInRandomFreeCell();
     }
+
+    public void Execute()
+    {
+        _spawner.SpawnItemInRandomFreeCell();
+    }
 }

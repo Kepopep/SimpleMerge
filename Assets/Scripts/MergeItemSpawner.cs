@@ -63,11 +63,7 @@ namespace SimpleMerge.Spawning
                 return false;
             }
             
-            // Get the maximum value in the grid
-            int maxValueInGrid = GetMaxValueInGrid();
-            
-            // Determine the spawn value range (1 to max value in grid + 1, minimum of 1)
-            int maxValueForSpawn = Mathf.Max(1, maxValueInGrid + 1);
+            int maxValueForSpawn = Mathf.Max(1, GetMaxValueInGrid() + 1);
             
             // Generate a random value in the appropriate range
             int spawnValue = _random.Next(1, maxValueForSpawn + 1);
