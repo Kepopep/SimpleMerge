@@ -38,16 +38,16 @@ namespace SimpleMerge.Setup
             if (_dragController != null)
             {
                 // Configure layer masks
-                _dragController.GetType().GetField("_itemLayerMask", 
+                _dragController.GetType().GetField("_itemLayerMask",
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                     ?.SetValue(_dragController, _mergeItemLayer);
                     
-                _dragController.GetType().GetField("_cellLayerMask", 
+                _dragController.GetType().GetField("_cellLayerMask",
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                     ?.SetValue(_dragController, _gridCellLayer);
                 
                 // Configure drag height
-                _dragController.GetType().GetField("_dragHeightOffset", 
+                _dragController.GetType().GetField("_dragHeightOffset",
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                     ?.SetValue(_dragController, _dragHeight);
             }
@@ -67,6 +67,7 @@ namespace SimpleMerge.Setup
                 // Add default handlers if needed
                 _dragController.OnDropOnEmptyCell.AddListener(OnDropOnEmptyCell);
                 _dragController.OnDropOnOccupiedCell.AddListener(OnDropOnOccupiedCell);
+                _dragController.OnMergeAttempt.AddListener(OnMergeAttempt);
             }
         }
         
@@ -87,6 +88,14 @@ namespace SimpleMerge.Setup
         }
         
         /// <summary>
+        /// Default handler for merge attempts
+        /// </summary>
+        private void OnMergeAttempt(MergeItem item1, MergeItem item2, GridCell targetCell)
+        {
+            Debug.Log($"Default: Items merged! Resulting value: {item2.Value} at cell ({targetCell.RowIndex}, {targetCell.ColumnIndex})");
+        }
+        
+        /// <summary>
         /// Creates a MergeItem and places it in a random free cell
         /// </summary>
         public void SpawnAndPlaceItem(GameObject mergeItemPrefab, int value = 1)
@@ -103,7 +112,7 @@ namespace SimpleMerge.Setup
                     if (newItem != null)
                     {
                         // Set the value if needed
-                        var fieldInfo = typeof(MergeItem).GetField("_value", 
+                        var fieldInfo = typeof(MergeItem).GetField("_value",
                             System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
                         if (fieldInfo != null)
                         {
@@ -128,6 +137,7 @@ namespace SimpleMerge.Setup
             {
                 _dragController.OnDropOnEmptyCell.RemoveListener(OnDropOnEmptyCell);
                 _dragController.OnDropOnOccupiedCell.RemoveListener(OnDropOnOccupiedCell);
+                _dragController.OnMergeAttempt.RemoveListener(OnMergeAttempt);
             }
         }
     }
