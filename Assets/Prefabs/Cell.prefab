@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3805016941932850651}
   - component: {fileID: 1279672158261990934}
   - component: {fileID: 267928678685213934}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3633671319337555264}
   - component: {fileID: 8714977347825020793}
-  m_Layer: 0
+  - component: {fileID: 2862647413662555415}
+  m_Layer: 7
   m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,3 +154,24 @@ MonoBehaviour:
   _rowIndex: 0
   _columnIndex: 0
   _localOffset: {x: 0, y: 0, z: 0}
+--- !u!65 &2862647413662555415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919319184159727067}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
