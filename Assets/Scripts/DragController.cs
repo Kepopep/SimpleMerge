@@ -124,7 +124,7 @@ namespace SimpleMerge.DragDrop
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _cellLayerMask | _itemLayerMask))
             {
                 Vector3 targetPosition = hit.point + _dragOffset;
-                targetPosition.y = _dragHeightOffset; // Maintain consistent height during drag
+                targetPosition.z = _dragHeightOffset; // Maintain consistent height during drag
                 
                 _draggedItem.transform.position = targetPosition;
             }
